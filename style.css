@@ -1,3 +1,4 @@
+
 /* colors + fonts live up here. change them once and every page updates */
 @font-face {
   font-family: "TimesNewArial";
@@ -14,36 +15,6 @@
   --title-font: "TimesNewArial", Georgia, serif;
 }
 
-/* checked = flip the theme (light system -> dark) */
-:root:has(#theme-check:checked) {
-  --bg: #111;
-  --fg: #eee;
-  --bar: #222;
-  --accent: #ff4040;
-  --ph1: #555;
-  --ph2: #333;
-}
-
-/* dark system: start dark, and checked flips to light */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #111;
-    --fg: #eee;
-    --bar: #222;
-    --accent: #ff4040;
-    --ph1: #555;
-    --ph2: #333;
-  }
-
-  :root:has(#theme-check:checked) {
-    --bg: #fff;
-    --fg: #1d1d1d;
-    --bar: #e6e6e6;
-    --accent: #0000e0;
-    --ph1: #3a3a3a;
-    --ph2: #222;
-  }
-}
 * {
   box-sizing: border-box;
 }
@@ -58,7 +29,6 @@ body {
 a {
   color: inherit;
 }
-
 
 /* Header + nav */
 header {
@@ -104,35 +74,9 @@ nav a.on {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-
-/* Theme toggle */
-.theme-check {
-  position: absolute;
-  opacity: 0;
-  pointer-events: none;
-}
-
-.theme-toggle {
-  position: absolute;
-  top: 12px;
-  left: 12px;
-  padding: 4px 10px;
-  border: 1px solid var(--fg);
-  color: var(--fg);
-  font: italic 700 14px Arial, Helvetica, sans-serif;
-  cursor: pointer;
-}
-
-.theme-toggle:hover {
-  background: var(--accent);
-  color: var(--bg);
-}
-
-
 main {
   padding: 8px;
 }
-
 
 /* Image rows (landing + art grid) */
 section {
@@ -190,7 +134,6 @@ section {
   text-decoration: none;
 }
 
-
 /* About (base) */
 .about {
   display: grid;
@@ -231,7 +174,6 @@ section {
   text-align: left;
 }
 
-
 /* "Say hello" link */
 .cta {
   display: block;
@@ -246,7 +188,6 @@ section {
 .cta:hover {
   text-decoration: underline;
 }
-
 
 /* About page: centered layout */
 .about-page {
@@ -308,7 +249,6 @@ section {
   padding: 0;
 }
 
-
 /* Acquaint page only */
 .acquaint-page {
   min-height: calc(100vh - 80px); /* adjust 80px to your header height */
@@ -329,7 +269,6 @@ section {
 .acquaint-page a:hover {
   text-decoration: underline;
 }
-
 
 /* Piece pages */
 .piece {
@@ -376,7 +315,6 @@ section {
   color: var(--accent);
   text-decoration: none;
 }
-
 
 /* Mobile */
 @media (max-width: 800px) {
