@@ -1,0 +1,413 @@
+/* colors + fonts live up here. change them once and every page updates */
+@font-face {
+  font-family: "TimesNewArial";
+  src: url("fonts/timesnewarial.ttf") format("truetype");
+}
+
+:root {
+  --bg: #fff;
+  --fg: #1d1d1d;
+  --bar: #e6e6e6;
+  --accent: #0000e0;
+  --ph1: #3a3a3a;
+  --ph2: #222;
+  --title-font: "TimesNewArial", Georgia, serif;
+}
+
+/* checked = flip the theme (light system -> dark) */
+:root:has(#theme-check:checked) {
+  --bg: #111;
+  --fg: #eee;
+  --bar: #222;
+  --accent: #ff4040;
+  --ph1: #555;
+  --ph2: #333;
+}
+
+/* dark system: start dark, and checked flips to light */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #111;
+    --fg: #eee;
+    --bar: #222;
+    --accent: #ff4040;
+    --ph1: #555;
+    --ph2: #333;
+  }
+
+  :root:has(#theme-check:checked) {
+    --bg: #fff;
+    --fg: #1d1d1d;
+    --bar: #e6e6e6;
+    --accent: #0000e0;
+    --ph1: #3a3a3a;
+    --ph2: #222;
+  }
+}
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: "Times New Roman", serif;
+}
+
+a {
+  color: inherit;
+}
+
+
+/* Header + nav */
+header {
+  position: relative;
+  background: var(--bar);
+  text-align: center;
+  padding: 22px 0 0;
+}
+
+header .name {
+  font-family: var(--title-font);
+  font-size: clamp(30px, 5vw, 52px);
+  line-height: 1.1;
+  letter-spacing: .04em;
+  display: block;
+  text-decoration: none;
+  padding: 0 12px 22px;
+}
+
+nav {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: 100%;
+  margin: 0;
+  border-top: 1px solid var(--fg);
+  border-bottom: 1px solid var(--fg);
+}
+
+nav a {
+  padding: 12px 0;
+  border-left: 1px solid var(--fg);
+  text-align: center;
+}
+
+nav a:first-child {
+  border-left: 0;
+}
+
+nav a:hover,
+nav a.on {
+  background: var(--accent);
+  color: var(--bg);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* Theme toggle */
+.theme-check {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.theme-toggle {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  padding: 4px 10px;
+  border: 1px solid var(--fg);
+  color: var(--fg);
+  font: italic 700 14px Arial, Helvetica, sans-serif;
+  cursor: pointer;
+}
+
+.theme-toggle:hover {
+  background: var(--accent);
+  color: var(--bg);
+}
+
+
+main {
+  padding: 8px;
+}
+
+
+/* Image rows (landing + art grid) */
+section {
+  margin-bottom: 18px;
+}
+
+.row {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.item {
+  flex: 1 1 0;
+  min-width: 0;
+  text-decoration: none;
+}
+
+.thumb {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1.45 / 1;
+  overflow: hidden;
+  background: var(--ph2);
+}
+
+.thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.ph {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(45deg, var(--ph1) 0 12px, var(--ph2) 12px 24px);
+}
+
+.cap {
+  color: var(--accent);
+  font-weight: 700;
+  font-size: 22px;
+  margin: 2px 4px 8px;
+  display: inline-block;
+}
+
+.cat {
+  font: 700 25px Arial, sans-serif;
+  color: var(--accent);
+  border-bottom: 1px solid var(--accent);
+  display: inline-block;
+  margin: 2px 4px 14px;
+  text-decoration: none;
+}
+
+
+/* About (base) */
+.about {
+  display: grid;
+  grid-template-columns: minmax(180px, 300px) repeat(3, 1fr);
+  gap: 32px;
+  padding: 28px 4vw 0;
+  align-items: start;
+}
+
+.me {
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: #c4c7cb;
+  box-shadow: 0 0 0 6px var(--accent), -14px 0 0 -2px #111 inset;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  font-size: 36px;
+  color: #555;
+}
+
+.me img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .4s;
+}
+
+.me:hover img {
+  transform: scale(1.08);
+}
+
+.about p {
+  font-size: clamp(15px, 1.25vw, 19px);
+  line-height: 1.7;
+  margin: 0;
+  text-align: left;
+}
+
+
+/* "Say hello" link */
+.cta {
+  display: block;
+  text-align: center;
+  font: italic 700 min(10vw, 14vh) Arial, Helvetica, sans-serif;
+  line-height: 1;
+  color: var(--accent);
+  text-decoration: none;
+  padding: 3vh 4vw;
+}
+
+.cta:hover {
+  text-decoration: underline;
+}
+
+
+/* About page: centered layout */
+.about-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.about-page .about {
+  --photo: min(34vh, 24vw);
+  flex: 1;
+  grid-template-columns: 1fr var(--photo) 1fr;
+  grid-template-rows: auto auto 1fr;
+  align-items: center;
+  gap: 3vh 3vw;
+  padding: 4vh 6vw;
+  margin: 0;
+}
+
+.about-page .about p {
+  font-size: clamp(16px, 1.5vw, 26px);
+  line-height: 1.6;
+  text-align: center;
+}
+
+/* photo in the middle, text hugging each side */
+.about-page .about > div:first-child {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.about-page .about p:nth-of-type(1) {
+  grid-column: 1;
+  grid-row: 1;
+  text-align: right;
+}
+
+.about-page .about p:nth-of-type(2) {
+  grid-column: 3;
+  grid-row: 1;
+  text-align: left;
+}
+
+/* third paragraph centered underneath */
+.about-page .about p:nth-of-type(3) {
+  grid-column: 1 / -1;
+  grid-row: 2;
+  max-width: 60vw;
+  margin: 0 auto;
+}
+
+/* say hello at the bottom */
+.about-page .cta {
+  grid-column: 1 / -1;
+  grid-row: 3;
+  align-self: center;
+  margin-top: 4vh;
+  font-size: min(8vw, 14vh);
+  padding: 0;
+}
+
+
+/* Acquaint page only */
+.acquaint-page {
+  min-height: calc(100vh - 80px); /* adjust 80px to your header height */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding: 0 4vw;
+}
+
+.acquaint-page a {
+  font-size: 14vw;
+  line-height: 1;
+  text-decoration: none;
+  display: block;
+  color: var(--accent);
+}
+
+.acquaint-page a:hover {
+  text-decoration: underline;
+}
+
+
+/* Piece pages */
+.piece {
+  max-width: 1000px;
+  margin: 30px auto;
+  padding: 0 20px;
+}
+
+.piece h1 {
+  color: var(--accent);
+  font-size: clamp(30px, 4vw, 44px);
+  margin: 0 0 6px;
+}
+
+.meta {
+  font: italic 18px Arial, sans-serif;
+  opacity: .75;
+  margin: 0 0 22px;
+}
+
+.media {
+  margin: 0 0 22px;
+}
+
+.media img,
+.media video,
+.media iframe {
+  width: 100%;
+  display: block;
+  border: 0;
+}
+
+.media iframe {
+  aspect-ratio: 16/9;
+}
+
+.piece p {
+  font-size: 21px;
+  line-height: 1.8;
+}
+
+.back {
+  font: 700 18px Arial, sans-serif;
+  color: var(--accent);
+  text-decoration: none;
+}
+
+
+/* Mobile */
+@media (max-width: 800px) {
+  .about {
+    grid-template-columns: 1fr;
+  }
+
+  .row {
+    flex-wrap: wrap;
+  }
+
+  .row .item {
+    flex: 1 1 45%;
+  }
+
+  .about-page .about {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+
+  .about-page .about > div:first-child,
+  .about-page .about p:nth-of-type(n),
+  .about-page .cta {
+    grid-column: 1;
+    grid-row: auto;
+    text-align: center;
+    max-width: none;
+  }
+
+  .about-page .about > div:first-child {
+    width: var(--photo);
+    margin: 0 auto;
+  }
+}

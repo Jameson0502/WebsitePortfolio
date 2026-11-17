@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Piece Title  Jameson Gaston</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header>
+  <a class="name" href="../index.html">Jameson Gaston</a>
+  <nav>
+    <a href="../about.html">About</a>
+    <a href="../art.html" class="on">Art</a>
+    <!-- acquaint opens a new tab with an email to me, emailme.js adds the random number to the subject -->
+    <a href="mailto:gastonjameson@gmail.com" id="acquaint" target="_blank" rel="noopener">Acquaint</a>
+  </nav>
+</header>
+<!-- template. copy this file, rename it to match the project folder (YEAR_COURSE_Title.html),
+     make a matching folder in img/ for its images, change the title / year line / description below,
+     then add a thumbnail for it in its category page and art.html (and index.html if it goes there) -->
+<article class="piece">
+  <a class="back" href="../art.html">- Art</a>
+  <h1>Piece Title</h1>
+  <p class="meta">year ~ category ~ tools</p>
+
+  <!-- media: one block per image / video / embed. swap the .ph div for one of these
+       <div class="media"><img src="../img/YEAR_COURSE_Title/cover.jpg" alt="Piece Title"></div>
+       <div class="media"><video src="../img/YEAR_COURSE_Title/01.mp4" controls></video></div>
+       <div class="media"><iframe src="https://www.youtube.com/embed/VIDEOID" allowfullscreen></iframe></div> -->
+  <div class="media"><div class="thumb" style="--r:1.78"><span class="ph"></span></div></div>
+
+  <p>description</p>
+</article>
+<script src="../emailme.js"></script>
+</body>
+</html>
