@@ -6,12 +6,12 @@
 }
 
 :root {
-  --bg: #fff;
-  --fg: #1d1d1d;
-  --bar: #e6e6e6;
-  --accent: #0000e0;
-  --ph1: #3a3a3a;
-  --ph2: #222;
+  --bg: #111;
+    --fg: #eee;
+    --bar: #222;
+    --accent: #ff4040;
+    --ph1: #555;
+    --ph2: #333;
   --title-font: "TimesNewArial", Georgia, serif;
 }
 
